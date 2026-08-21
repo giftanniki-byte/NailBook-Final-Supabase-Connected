@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>NailBook | Client Sign Up</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, Arial, sans-serif;
+            background: linear-gradient(
+                135deg,
+                #fff4f7,
+                #fbf0ff
+            );
+            min-height: 100vh;
+            color: #171b2d;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 22px;
+        }
+
+        .card {
+            width: min(470px, 94%);
+            background: #fff;
+            border: 1px solid #eee6eb;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 18px 50px #23142814;
+        }
+
+        /* NailBook logo */
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #171b2d;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: linear-gradient(
+                135deg,
+                #ed3d82,
+                #bd3fd4
+            );
+            color: #fff;
+            display: grid;
+            place-items: center;
+        }
+
+        /* Page heading */
+        h1 {
+            text-align: center;
+            margin: 0 0 7px;
+            font-size: 27px;
+        }
+
+        .sub {
+            text-align: center;
+            color: #707586;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        /* Form labels */
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            margin: 14px 0 7px;
+        }
+
+        /* Form inputs */
+        input {
+            width: 100%;
+            height: 48px;
+            border: 1px solid #dfe3eb;
+            border-radius: 11px;
+            padding: 0 12px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #e63891;
+            box-shadow: 0 0 0 3px #e6389118;
+        }
+
+        /* Submit button */
+        button {
+            width: 100%;
+            height: 51px;
+            margin-top: 20px;
+            border: 0;
+            border-radius: 12px;
+            background: #111827;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+        }
+
+        /* Authentication message */
+        .msg {
+            text-align: center;
+            min-height: 20px;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+        /* Login link */
+        .bottom {
+            text-align: center;
+            margin-top: 17px;
+            font-size: 13px;
+            color: #707586;
+        }
+
+        .bottom a {
+            color: #e63891;
+            font-weight: 600;
+        }
+    </style>
+
+    <!-- Shared NailBook styles -->
+    <link
+        href="nailbook-shared.css"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <div class="page">
+
+        <div class="card">
+
+            <!-- NailBook logo -->
+            <a
+                class="logo"
+                href="Home%20page.html"
+            >
+                <span class="icon">✧</span>
+                NailBook
+            </a>
+
+            <!-- Heading -->
+            <h1>Create your client account</h1>
+
+            <p class="sub">
+                Find artists, book appointments and manage your bookings.
+            </p>
+
+            <!-- Client registration form -->
+            <form id="signupForm">
+
+                <!-- Full name -->
+                <label for="fullName">
+                    Full name
+                </label>
+
+                <input
+                    id="fullName"
+                    placeholder="Your name"
+                    required
+                >
+
+                <!-- Email -->
+                <label for="email">
+                    Email address
+                </label>
+
+                <input
+                    id="email"
+                    type="email"
+                    placeholder="you@example.com"
+                    required
+                >
+
+                <!-- Password -->
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    id="password"
+                    type="password"
+                    minlength="6"
+                    placeholder="At least 6 characters"
+                    required
+                >
+
+                <!-- City -->
+                <label for="city">
+                    City
+                </label>
+
+                <input
+                    id="city"
+                    placeholder="e.g. Polokwane"
+                    required
+                >
+
+                <!-- Phone -->
+                <label for="phone">
+                    Phone (optional)
+                </label>
+
+                <input
+                    id="phone"
+                    placeholder="Your phone number"
+                >
+
+                <!-- Submit -->
+                <button
+                    id="submitBtn"
+                    type="submit"
+                >
+                    Create client account
+                </button>
+
+                <!-- Status message -->
+                <div
+                    class="msg"
+                    id="message"
+                ></div>
+
+            </form>
+
+            <!-- Login link -->
+            <div class="bottom">
+                Already have an account?
+                <a href="loginclient.html">
+                    Log in
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- NailBook JavaScript -->
+    <script src="app.js"></script>
+    <script src="auth.js"></script>
+
+    <!-- Footer -->
+    <div id="siteFooter"></div>
+
+    <script>
+        /*
+         * Client account registration
+         */
+        document
+            .getElementById("signupForm")
+            .addEventListener("submit", async (e) => {
+
+                e.preventDefault();
+
+                const button =
+                    document.getElementById("submitBtn");
+
+                const message =
+                    document.getElementById("message");
+
+                // Disable button while account is being created
+                button.disabled = true;
+                button.textContent = "Creating account...";
+                message.textContent = "";
+
+                try {
+
+                    const data = await signUpNailBookUser({
+
+                        role: "client",
+
+                        email:
+                            document
+                                .getElementById("email")
+                                .value,
+
+                        password:
+                            document
+                                .getElementById("password")
+                                .value,
+
+                        fullName:
+                            document
+                                .getElementById("fullName")
+                                .value
+                                .trim(),
+
+                        city:
+                            document
+                                .getElementById("city")
+                                .value
+                                .trim(),
+
+                        phone:
+                            document
+                                .getElementById("phone")
+                                .value
+                                .trim()
+                    });
+
+                    /*
+                     * If Supabase immediately creates a session,
+                     * send the client directly to the dashboard.
+                     */
+                    if (data.session) {
+
+                        showAuthMessage(
+                            message,
+                            "Account created. Opening your dashboard...",
+                            "success"
+                        );
+
+                        setTimeout(() => {
+                            location.href =
+                                "dashboardclient.html";
+                        }, 600);
+
+                    } else {
+
+                        /*
+                         * If email confirmation is enabled,
+                         * the user must confirm their email first.
+                         */
+                        showAuthMessage(
+                            message,
+                            "Account created. Check your email to confirm it, then log in as a client.",
+                            "success"
+                        );
+
+                        button.disabled = false;
+                        button.textContent =
+                            "Create client account";
+                    }
+
+                } catch (err) {
+
+                    console.error(err);
+
+                    showAuthMessage(
+                        message,
+                        err.message ||
+                        "Could not create the account."
+                    );
+
+                    button.disabled = false;
+                    button.textContent =
+                        "Create client account";
+                }
+            });
+    </script>
+
+    <!-- Shared NailBook footer -->
+    <script src="footer.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+NAILBOOK FINAL END-TO-END FLOW
+
+CLIENT
+1. Home page.html
+2. Search a city -> Find artist.html?city=...
+3. Find artist.html loads v_artist_directory from Supabase
+4. Click artist IMAGE or NAME only -> artist-profile.html?id=...
+5. View gallery, bio, services, prices and reviews
+6. Click Book Appointment
+7. Client must be signed in as a client
+8. Booking is inserted into public.bookings
+9. Client is redirected to dashboardclient.html
+
+ARTIST
+1. signupArtist.html
+2. Supabase Auth creates the account
+3. ensure_nailbook_profile creates the artist profile
+4. Redirect to DashboardArtist.html when a session exists
+5. Artist can edit profile fields
+6. Artist selects services and sets PRICE + DURATION
+7. Artist uploads gallery images to Storage bucket artist-gallery
+8. Gallery URLs are saved to artist_profiles.gallery
+9. Artist confirms/declines bookings from the dashboard
+
+CONTACT
+1. Contact us.html
+2. Visitor enters name, email, subject and message
+3. JavaScript calls submit_support_message(...)
+4. Supabase inserts the row into public.support_messages
+5. Success message is shown to the visitor
+
+COMMON UI
+- nailbook-shared.css contains common footer/mobile styles
+- footer.js creates the same copyright footer on every page
+- Home page has a working mobile hamburger drawer
+
+IMPORTANT
+- Run the complete nailbook.sql in Supabase.
+- Do not put a service_role key in app.js.
+- For immediate signup -> dashboard, disable Supabase email confirmation.
+- If email confirmation is enabled, the confirmation link is configured to return to the correct dashboard.

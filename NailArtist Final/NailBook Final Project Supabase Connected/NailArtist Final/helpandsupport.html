@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NailBook | Help &amp; Support</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    color: #171b2d;
+    background: #fff9fb;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    height: 66px;
+    background: rgba(255,255,255,0.98);
+    border-bottom: 1px solid #eeeaf0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 24px;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+}
+
+.logo-icon {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 11px;
+
+    background: linear-gradient(
+        135deg,
+        #ed3d82,
+        #bd3fd4
+    );
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
+
+    box-shadow:
+        0 5px 15px rgba(220,55,140,0.20);
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+/* NAVIGATION */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4f5568;
+
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #ed3d82;
+}
+
+.nav-links .active {
+    color: #ed3d82;
+    font-weight: 600;
+}
+
+
+/* RIGHT SIDE */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.login {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.signup {
+    border: none;
+
+    background: #111827;
+    color: white;
+
+    padding: 11px 20px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.signup:hover {
+    background: #ed3d82;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(255,207,220,0.75),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 80% 60%,
+            rgba(244,205,255,0.75),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fff4f7,
+            #fff8fb 50%,
+            #fbf1ff
+        );
+
+    text-align: center;
+
+    padding: 80px 20px 75px;
+
+    border-bottom: 1px solid #f0e9ef;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 16px;
+
+    border: 1px solid #ffd3df;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.7);
+
+    color: #ed3d67;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 65px);
+
+    letter-spacing: -2px;
+
+    line-height: 1.05;
+
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    display: block;
+
+    background: linear-gradient(
+        90deg,
+        #ef3b78,
+        #d538c7
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.hero p {
+    max-width: 620px;
+
+    margin: auto;
+
+    color: #656a7a;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.help-search {
+    max-width: 650px;
+
+    margin: 30px auto 0;
+
+    position: relative;
+}
+
+.help-search input {
+    width: 100%;
+
+    height: 58px;
+
+    border: 1px solid #e1e4eb;
+
+    border-radius: 16px;
+
+    background: white;
+
+    padding: 0 25px 0 50px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.05);
+
+    transition: 0.2s;
+}
+
+.help-search input:focus {
+    border-color: #e63891;
+
+    box-shadow:
+        0 0 0 3px rgba(230,56,145,0.10);
+}
+
+.search-icon {
+    position: absolute;
+
+    left: 19px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 20px;
+
+    color: #8b96a8;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.container {
+    width: min(1050px, calc(100% - 40px));
+
+    margin: auto;
+}
+
+
+/* =========================
+   SUPPORT OPTIONS
+========================= */
+
+.support-section {
+    padding: 65px 0;
+}
+
+.section-title {
+    font-size: 30px;
+
+    margin-bottom: 30px;
+
+    letter-spacing: -1px;
+}
+
+
+/* CARDS */
+
+.support-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.support-card {
+    background: white;
+
+    border: 1px solid #e6e1e6;
+
+    border-radius: 18px;
+
+    padding: 32px;
+
+    position: relative;
+
+    transition: 0.25s;
+
+    box-shadow:
+        0 8px 25px rgba(30,20,40,0.04);
+}
+
+.support-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #f3b9d2;
+
+    box-shadow:
+        0 15px 35px rgba(220,55,140,0.10);
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ed3d82,
+            #bd3fd4
+        );
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
+
+    margin-bottom: 22px;
+}
+
+.support-card h3 {
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+.support-card p {
+    color: #697083;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+}
+
+.support-link {
+    color: #ed3d82;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.support-link:hover {
+    color: #bd3fd4;
+}
+
+
+/* =========================
+   FAQ
+========================= */
+
+.faq-section {
+    padding: 10px 0 75px;
+}
+
+.faq-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.faq {
+    background: white;
+
+    border: 1px solid #e6e1e6;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+
+    padding: 20px;
+
+    border: none;
+
+    background: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #171b2d;
+}
+
+.faq-question:hover {
+    color: #ed3d82;
+}
+
+.faq-icon {
+    font-size: 20px;
+
+    color: #ed3d82;
+
+    transition: 0.2s;
+}
+
+.faq-answer {
+    display: none;
+
+    padding: 0 20px 20px;
+
+    color: #697083;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+.faq.open .faq-answer {
+    display: block;
+}
+
+.faq.open .faq-icon {
+    transform: rotate(45deg);
+}
+
+
+/* =========================
+   CONTACT SUPPORT
+========================= */
+
+.contact-section {
+    margin-bottom: 75px;
+
+    padding: 45px 30px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f5,
+            #f9edff
+        );
+
+    border: 1px solid #f5d9e9;
+}
+
+.contact-section h2 {
+    font-size: 28px;
+
+    margin-bottom: 12px;
+}
+
+.contact-section p {
+    color: #697083;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+.contact-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 13px 25px;
+
+    border-radius: 12px;
+
+    background: #111827;
+
+    color: white;
+
+    border: none;
+
+    font-weight: 600;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.contact-button:hover {
+    background: #ed3d82;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(230,56,145,0.25);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background: #ffffff;
+
+    border-top: 1px solid #e7e3e8;
+
+    padding: 45px 0 25px;
+}
+
+.footer-grid {
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+
+    gap: 35px;
+}
+
+.footer-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+.footer-brand .logo-icon {
+    width: 34px;
+    height: 34px;
+
+    font-size: 18px;
+}
+
+.footer-brand strong {
+    font-size: 16px;
+}
+
+.footer p {
+    color: #707586;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    max-width: 260px;
+}
+
+.footer-column h4 {
+    font-size: 14px;
+
+    margin-bottom: 16px;
+}
+
+.footer-column a {
+    display: block;
+
+    color: #697083;
+
+    font-size: 13px;
+
+    margin-bottom: 12px;
+
+    transition: 0.2s;
+}
+
+.footer-column a:hover {
+    color: #ed3d82;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #eeeaf0;
+
+    text-align: center;
+
+    color: #8990a0;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+.mobile-menu {
+    display: none;
+
+    background: transparent;
+
+    border: none;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    color: #171b2d;
+}
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 0 16px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-right .login {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .hero {
+        padding: 65px 20px;
+    }
+
+    .support-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .container {
+        width: calc(100% - 28px);
+    }
+
+    .support-card {
+        padding: 25px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-right .signup {
+        display: none;
+    }
+
+}
+
+</style>
+<link href="nailbook-shared.css" rel="stylesheet"/></head>
+<body>
+<!-- =========================
+     NAVIGATION
+========================= -->
+<header class="navbar">
+<!-- CLICKING LOGO GOES HOME -->
+<a class="logo" href="Home%20page.html">
+<div class="logo-icon">
+            ✧
+        </div>
+<span class="logo-text">
+            NailBook
+        </span>
+</a>
+<!-- NAVIGATION -->
+<nav class="nav-links">
+<a href="Home%20page.html">
+            Home
+        </a>
+<a href="Find%20artist.html">
+            Find Artists
+        </a>
+</nav>
+<!-- RIGHT -->
+<div class="nav-right">
+<button class="mobile-menu" onclick="mobileMenu()">
+            ☰
+        </button>
+</div>
+</header>
+<!-- =========================
+     SUPPORT OPTIONS
+========================= -->
+<section class="support-section">
+<div class="container">
+<h2 class="section-title">
+        Get support
+    </h2>
+<div class="support-grid">
+<!-- CUSTOMER -->
+<div class="support-card">
+<div class="card-icon">
+                ♡
+            </div>
+<h3>
+                For Customers
+            </h3>
+<p>
+                Need help finding a nail artist, booking an appointment,
+                choosing a service, or managing your booking?
+            </p>
+<a class="support-link" href="#customer-faq">
+                Customer help →
+            </a>
+</div>
+<!-- ARTIST -->
+<div class="support-card">
+<div class="card-icon">
+                ✦
+            </div>
+<h3>
+                For Nail Artists
+            </h3>
+<p>
+                Get help setting up your artist profile, managing
+                appointments, services, availability and bookings.
+            </p>
+<a class="support-link" href="#artist-faq">
+                Artist help →
+            </a>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================
+     FAQ
+========================= -->
+<section class="faq-section">
+<div class="container">
+<h2 class="section-title">
+        Frequently asked questions
+    </h2>
+<div class="faq-list">
+<!-- FAQ 1 -->
+<div class="faq" id="customer-faq">
+<button class="faq-question" onclick="toggleFAQ(this)">
+
+                How do I find a nail artist?
+
+                <span class="faq-icon">
+                    +
+                </span>
+</button>
+<div class="faq-answer">
+
+                Go to the Find Artists page and use the search bar
+                to search by location or artist name. You can also
+                filter artists by specialty.
+
+            </div>
+</div>
+<!-- FAQ 2 -->
+<div class="faq">
+<button class="faq-question" onclick="toggleFAQ(this)">
+
+                How do I book an appointment?
+
+                <span class="faq-icon">
+                    +
+                </span>
+</button>
+<div class="faq-answer">
+
+                Open the artist you would like to visit and select
+                an available service. Choose your preferred date and
+                time, then complete the booking process.
+
+            </div>
+</div>
+<!-- FAQ 3 -->
+<div class="faq">
+<button class="faq-question" onclick="toggleFAQ(this)">
+
+                Can I search for a specific service?
+
+                <span class="faq-icon">
+                    +
+                </span>
+</button>
+<div class="faq-answer">
+
+                Yes. On the Find Artists page you can use the
+                All Specialties filter to display artists who offer
+                services such as Manicure, Pedicure, Gel Nails,
+                Nail Art and other specialties.
+
+            </div>
+</div>
+<!-- FAQ 4 -->
+<div class="faq" id="artist-faq">
+<button class="faq-question" onclick="toggleFAQ(this)">
+
+                How do I join NailBook as an artist?
+
+                <span class="faq-icon">
+                    +
+                </span>
+</button>
+<div class="faq-answer">
+
+                Select the Sign up option and create your NailBook
+                account. You can then set up your artist profile,
+                services and availability.
+
+            </div>
+</div>
+<!-- FAQ 5 -->
+<div class="faq">
+<button class="faq-question" onclick="toggleFAQ(this)">
+
+                How can I change my availability?
+
+                <span class="faq-icon">
+                    +
+                </span>
+</button>
+<div class="faq-answer">
+
+                Artists can manage their availability from their
+                artist dashboard. Make sure your available times
+                are updated so customers can book appointments.
+
+            </div>
+</div>
+<!-- FAQ 6 -->
+<div class="faq">
+<button class="faq-question" onclick="toggleFAQ(this)">
+
+                I need more help. What should I do?
+
+                <span class="faq-icon">
+                    +
+                </span>
+</button>
+<div class="faq-answer">
+
+                If you cannot find the answer you are looking for,
+                use the Contact Support option below to get in touch
+                with the NailBook support team.
+
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================
+     CONTACT SUPPORT
+========================= -->
+<section class="container">
+<div class="contact-section">
+<h2>
+            Still need help?
+        </h2>
+<p>
+            Our support team is here to help you with your NailBook experience.
+        </p>
+<button class="contact-button" onclick="contactSupport()">
+
+            Contact Support
+
+        </button>
+</div>
+</section>
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+<script>
+
+/* =========================
+   FAQ
+========================= */
+
+function toggleFAQ(button) {
+
+    const faq = button.parentElement;
+
+    faq.classList.toggle("open");
+
+}
+
+
+/* =========================
+   CONTACT SUPPORT
+========================= */
+
+function contactSupport() {
+
+    alert(
+        "Thank you for contacting NailBook Support!\n\n" +
+        "Please email us at support@nailbook.com"
+    );
+
+}
+
+
+/* =========================
+   SIGN UP
+========================= */
+
+function signUp() {
+
+    alert(
+        "NailBook Sign Up\n\n" +
+        "The sign-up page will open here."
+    );
+
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+function mobileMenu() {
+
+    alert(
+        "Menu\n\n" +
+        "Home\n" +
+        "Find Artists\n" +
+        "Help & Support"
+    );
+
+}
+
+
+/* =========================
+   HELP SEARCH
+========================= */
+
+function searchHelp() {
+
+    const search =
+        document
+        .getElementById("helpSearch")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const faqs =
+        document.querySelectorAll(".faq");
+
+    faqs.forEach(function(faq) {
+
+        const text =
+            faq.innerText.toLowerCase();
+
+        if (search === "" || text.includes(search)) {
+
+            faq.style.display = "block";
+
+        } else {
+
+            faq.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+<!-- =========================
+     FOOTER
+========================= -->
+<!-- Copyright -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Extended footer: shown only on Find Artists and Help & Support pages. -->
+<div id="siteFooter"></div><script src="app.js"></script>
+<script src="footer.js"></script></body>
+</html>

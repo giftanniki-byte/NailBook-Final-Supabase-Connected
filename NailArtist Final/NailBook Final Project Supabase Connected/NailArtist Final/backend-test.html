@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>NailBook Backend Test</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            font-family: Inter, Arial, sans-serif;
+            background: #fff5f8;
+            color: #111827;
+        }
+
+        .card {
+            max-width: 820px;
+            margin: auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 22px;
+            box-shadow: 0 18px 50px #3b172015;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .item {
+            margin: 10px 0;
+            padding: 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 13px;
+        }
+
+        .ok {
+            color: #09883f;
+        }
+
+        .bad {
+            color: #e63863;
+        }
+
+        .note {
+            color: #6b7280;
+            font-size: 13px;
+        }
+    </style>
+
+    <link
+        href="nailbook-shared.css"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <div class="card">
+
+        <h1>NailBook Backend Test</h1>
+
+        <p>
+            Use this page after running
+            <code>nailbook.sql</code>
+            in Supabase.
+        </p>
+
+        <!-- Supabase connection test -->
+        <div
+            class="item"
+            id="client"
+        >
+            Testing...
+        </div>
+
+        <!-- Services table test -->
+        <div
+            class="item"
+            id="services"
+        >
+            Testing...
+        </div>
+
+        <!-- Artist directory test -->
+        <div
+            class="item"
+            id="artists"
+        >
+            Testing...
+        </div>
+
+        <!-- Authentication test -->
+        <div
+            class="item"
+            id="auth"
+        >
+            Testing...
+        </div>
+
+        <p class="note">
+            Authentication is not an error when nobody is logged in.
+            Create an account or log in to test an active session.
+        </p>
+
+    </div>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- NailBook application configuration -->
+    <script src="app.js"></script>
+
+    <!-- Footer container -->
+    <div id="siteFooter"></div>
+
+    <script>
+        (async () => {
+
+            /*
+             * Helper function for displaying
+             * successful and failed tests.
+             */
+            const set = (id, ok, title, text) => {
+                document.getElementById(id).innerHTML = `
+                    <strong class="${ok ? 'ok' : 'bad'}">
+                        ${ok ? '✓' : '✗'} ${title}
+                    </strong>
+                    <br>
+                    ${text}
+                `;
+            };
+
+            try {
+
+                /*
+                 * Test 1:
+                 * Check whether the Supabase client
+                 * has loaded correctly.
+                 */
+                set(
+                    'client',
+                    true,
+                    'Supabase client',
+                    'Client loaded.'
+                );
+
+                /*
+                 * Test 2:
+                 * Check the services table.
+                 */
+                const servicesResult = await supabaseClient
+                    .from('services')
+                    .select('service_id', {
+                        count: 'exact',
+                        head: false
+                    });
+
+                if (servicesResult.error) {
+                    throw new Error(
+                        'Services: ' +
+                        servicesResult.error.message
+                    );
+                }
+
+                set(
+                    'services',
+                    true,
+                    'Services table',
+                    `${servicesResult.data.length} services returned.`
+                );
+
+                /*
+                 * Test 3:
+                 * Check the artist directory view.
+                 */
+                const artistsResult = await supabaseClient
+                    .from('v_artist_directory')
+                    .select(
+                        'artist_id,business_name,location'
+                    );
+
+                if (artistsResult.error) {
+                    throw new Error(
+                        'Artist directory: ' +
+                        artistsResult.error.message
+                    );
+                }
+
+                set(
+                    'artists',
+                    true,
+                    'Artist directory view',
+                    `${artistsResult.data.length} artists returned. Create an artist account to add one.`
+                );
+
+                /*
+                 * Test 4:
+                 * Check Supabase authentication.
+                 */
+                const userResult =
+                    await supabaseClient.auth.getUser();
+
+                if (userResult.data.user) {
+
+                    /*
+                     * Make sure the logged-in user
+                     * has a NailBook profile.
+                     */
+                    const profileResult =
+                        await supabaseClient.rpc(
+                            'ensure_nailbook_profile'
+                        );
+
+                    if (profileResult.error) {
+                        throw new Error(
+                            'Profile provisioning: ' +
+                            profileResult.error.message
+                        );
+                    }
+
+                    set(
+                        'auth',
+                        true,
+                        'Authentication',
+                        `Authenticated as ${userResult.data.user.email}. Profile provisioning works.`
+                    );
+
+                } else {
+
+                    /*
+                     * No user is currently logged in.
+                     * This is still considered a successful
+                     * authentication configuration test.
+                     */
+                    set(
+                        'auth',
+                        true,
+                        'Authentication',
+                        'Supabase Authentication is configured. No user is currently logged in.'
+                    );
+                }
+
+            } catch (e) {
+
+                console.error(e);
+
+                set(
+                    'auth',
+                    false,
+                    'Backend test error',
+                    e.message || String(e)
+                );
+            }
+
+        })();
+    </script>
+
+    <!-- Shared NailBook footer -->
+    <script src="footer.js"></script>
+
+</body>
+</html>

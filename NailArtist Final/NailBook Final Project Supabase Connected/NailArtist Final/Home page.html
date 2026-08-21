@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NailBook | Find Your Perfect Nail Artist</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            color: #171b2d;
+            background: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            height: 64px;
+            width: 100%;
+
+            background: rgba(255,255,255,0.97);
+
+            border-bottom: 1px solid #eeeeF3;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 22px;
+
+            position: relative;
+            z-index: 10;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            cursor: pointer;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+
+            border-radius: 11px;
+
+            background: linear-gradient(
+                135deg,
+                #ed3d82,
+                #bd3fd4
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+
+            font-size: 21px;
+
+            box-shadow:
+                0 5px 15px rgba(220,55,140,0.20);
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+
+        /* NAV LINKS */
+
+        .nav-links {
+            position: absolute;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 34px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+
+            color: #171b2d;
+
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #ed3d82;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            min-height: calc(100vh - 64px);
+
+            display: flex;
+
+            justify-content: center;
+
+            background:
+
+                radial-gradient(
+                    circle at 25% 35%,
+                    rgba(255,207,220,0.65),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 75% 55%,
+                    rgba(244,205,255,0.65),
+                    transparent 40%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #fff4f7,
+                    #fff8fb 50%,
+                    #fbf1ff
+                );
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        /* HERO CONTENT */
+
+        .hero-content {
+
+            width: 100%;
+
+            max-width: 900px;
+
+            text-align: center;
+
+            padding:
+
+                145px
+                20px
+                100px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        /* BADGE */
+
+        .hero-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 9px 16px;
+
+            border: 1px solid #ffd3df;
+
+            border-radius: 999px;
+
+            background: rgba(255,255,255,0.55);
+
+            color: #ed3d67;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            margin-bottom: 34px;
+        }
+
+
+        /* HEADING */
+
+        .hero-title {
+
+            font-size: clamp(
+                55px,
+                7vw,
+                74px
+            );
+
+            line-height: 1.05;
+
+            letter-spacing: -3px;
+
+            font-weight: 400;
+
+            color: #171b2d;
+        }
+
+        .hero-title .highlight {
+
+            display: block;
+
+            font-weight: 600;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #ef3b78,
+                    #d538c7
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+        }
+
+
+        /* DESCRIPTION */
+
+        .hero-description {
+
+            max-width: 670px;
+
+            margin: 24px auto 0;
+
+            color: #5e6374;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .search-area {
+
+            width: 100%;
+
+            max-width: 575px;
+
+            margin: 30px auto 0;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        .search-box {
+
+            height: 58px;
+
+            flex: 1;
+
+            display: flex;
+
+            align-items: center;
+
+            background: #ffffff;
+
+            border: 1px solid #e1e4eb;
+
+            border-radius: 16px;
+
+            padding: 0 18px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.04);
+
+            transition: 0.2s;
+        }
+
+
+        .search-box:focus-within {
+
+            border-color: #e63891;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(230,56,145,0.10);
+        }
+
+
+        .location-icon {
+
+            font-size: 21px;
+
+            color: #8b96a8;
+
+            margin-right: 10px;
+        }
+
+
+        .search-box input {
+
+            width: 100%;
+
+            height: 100%;
+
+            border: none;
+
+            outline: none;
+
+            background: transparent;
+
+            font-size: 14px;
+
+            color: #172033;
+        }
+
+
+        .search-box input::placeholder {
+
+            color: #8b96a8;
+        }
+
+
+        /* SEARCH BUTTON */
+
+        .search-button {
+
+            height: 58px;
+
+            min-width: 138px;
+
+            padding: 0 24px;
+
+            border: none;
+
+            border-radius: 16px;
+
+            background: #111827;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            transition: 0.2s;
+        }
+
+
+        .search-button:hover {
+
+            background: #e63891;
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(230,56,145,0.25);
+        }
+
+
+        .search-button:active {
+
+            transform: translateY(0);
+        }
+/* =========================
+   FOOTER
+========================= */
+
+.site-footer {
+    width: 100%;
+    background: #ffffff;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 50px;
+    padding: 48px 30px 0;
+}
+
+
+/* Main footer layout */
+
+.footer-container {
+    max-width: 1180px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+
+    gap: 60px;
+
+    padding-bottom: 38px;
+}
+
+
+/* =========================
+   FOOTER BRAND
+========================= */
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #111827;
+    font-size: 17px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    margin-bottom: 18px;
+}
+
+
+.footer-logo-icon {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: linear-gradient(
+        135deg,
+        #ed3d82,
+        #bd3fd4
+    );
+
+    color: white;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 4px 12px rgba(220, 55, 140, 0.20);
+}
+
+
+.footer-brand p {
+    max-width: 260px;
+
+    color: #667085;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* =========================
+   FOOTER COLUMNS
+========================= */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+
+    gap: 13px;
+}
+
+
+.footer-column h3 {
+    margin: 4px 0 8px;
+
+    color: #111827;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+.footer-column a {
+    color: #667085;
+
+    font-size: 14px;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+
+.footer-column a:hover {
+    color: #ed3d82;
+}
+
+
+/* =========================
+   COPYRIGHT
+========================= */
+
+.footer-bottom {
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    border-top: 1px solid #e5e7eb;
+
+    padding: 32px 0 38px;
+
+    text-align: center;
+
+    color: #98a2b3;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .site-footer {
+        padding: 40px 24px 0;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 35px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .site-footer {
+        padding: 35px 20px 0;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .footer-bottom {
+        padding: 25px 0 30px;
+    }
+
+}
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 34px;
+
+            margin-top: 48px;
+
+            color: #656a7a;
+
+            font-size: 13px;
+        }
+
+        .stat {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+        }
+
+        .dot {
+
+            width: 8px;
+
+            height: 8px;
+
+            border-radius: 50%;
+        }
+
+        .green {
+            background: #45d97b;
+        }
+
+        .pink {
+            background: #f56d91;
+        }
+
+        .purple {
+            background: #dc70e8;
+        }
+
+
+
+        /* Hamburger menu - visible on smaller screens */
+        .home-hamburger {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #fff;
+            font-size: 21px;
+            cursor: pointer;
+        }
+        .home-mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+        }
+        .home-mobile-menu.open { display: block; }
+        .home-menu-shade { position:absolute; inset:0; background:rgba(0,0,0,.5); }
+        .home-menu-drawer {
+            position:absolute; right:0; top:0; height:100%; width:min(360px,88%);
+            background:#fff; padding:24px; box-shadow:-10px 0 35px rgba(0,0,0,.12);
+        }
+        .home-menu-close {
+            float:right; width:40px; height:40px; border:1px solid #ddd;
+            border-radius:9px; background:#fff; font-size:22px; cursor:pointer;
+        }
+        .home-menu-nav { clear:both; padding-top:60px; display:flex; flex-direction:column; }
+        .home-menu-nav a { padding:15px 0; font-weight:600; }
+        .home-menu-nav a:hover { color:#e63891; }
+        .home-menu-cta { background:#f63d67; color:#fff !important; text-align:center; border-radius:11px; margin-top:12px; }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+
+                padding: 0 16px;
+            }
+
+            .nav-links {
+
+                display: none;
+            }
+
+            .home-hamburger {
+                display: flex;
+            }
+
+            .hero-content {
+
+                padding-top: 90px;
+            }
+
+            .hero-title {
+
+                font-size: 52px;
+
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+
+                font-size: 15px;
+            }
+
+            .search-area {
+
+                flex-direction: column;
+
+                width: calc(100% - 30px);
+            }
+
+            .search-box {
+
+                width: 100%;
+
+                flex: none;
+            }
+
+            .search-button {
+
+                width: 100%;
+            }
+
+            .stats {
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+        }
+
+
+        @media (max-width: 420px) {
+
+            .logo-text {
+
+                font-size: 18px;
+            }
+
+            .logo-icon {
+
+                width: 35px;
+
+                height: 35px;
+            }
+
+            .hero-title {
+
+                font-size: 43px;
+            }
+
+            .hero-content {
+
+                padding-top: 75px;
+            }
+        }
+
+    </style>
+<link href="nailbook-shared.css" rel="stylesheet"/></head>
+<body>
+<!-- =========================
+         NAVIGATION
+    ========================= -->
+<header class="navbar">
+<!-- CLICKABLE LOGO -->
+<a class="logo" href="Home%20page.html">
+<div class="logo-icon">
+                ✧
+            </div>
+<span class="logo-text">
+                NailBook
+            </span>
+</a>
+<!-- NAVIGATION -->
+<nav>
+<ul class="nav-links">
+<li>
+<a href="Home%20page.html">
+                        Home
+                    </a>
+</li>
+<li>
+<a href="Find%20artist.html">
+                        Find Artists
+                    </a>
+</li>
+</ul>
+</nav>
+
+<!-- Hamburger menu is intentionally visible on the home page. -->
+<button
+    class="home-hamburger nb-hamburger"
+    id="homeMenuBtn"
+    type="button"
+    aria-label="Open navigation menu"
+    aria-controls="homeMobileMenu"
+    aria-expanded="false">
+    ☰
+</button>
+</header>
+
+<!-- Home page mobile navigation drawer. -->
+<div class="home-mobile-menu nb-mobile-menu" id="homeMobileMenu" aria-hidden="true">
+    <div class="home-menu-shade nb-mobile-shade" id="homeMenuShade"></div>
+
+    <aside class="home-menu-drawer nb-mobile-drawer" aria-label="Mobile navigation">
+        <button
+            class="home-menu-close nb-mobile-close"
+            id="homeMenuClose"
+            type="button"
+            aria-label="Close navigation menu">
+            ×
+        </button>
+
+        <nav class="home-menu-nav nb-mobile-nav">
+            <a href="Home%20page.html">Home</a>
+            <a href="Find%20artist.html">Find Artists</a>
+            <a href="helpandsupport.html">Help &amp; Support</a>
+            <a href="signupclient.html">Join as Client</a>
+            <a href="signupArtist.html">Join as Artist</a>
+            <a href="loginclient.html">Client Login</a>
+            <a href="loginArtist.html">Artist Login</a>
+            <a class="home-menu-cta nb-mobile-cta" href="Find%20artist.html">Find an Artist</a>
+        </nav>
+    </aside>
+</div>
+
+<!-- =========================
+         HERO
+    ========================= -->
+<main>
+<section class="hero">
+<div class="hero-content">
+<!-- BADGE -->
+<div class="hero-badge">
+<span>
+                        ✧
+                    </span>
+
+                    Find your perfect nail artist
+
+                </div>
+<!-- TITLE -->
+<h1 class="hero-title">
+
+                    Nails that
+
+                    <span class="highlight">
+                        speak for you
+                    </span>
+</h1>
+<!-- DESCRIPTION -->
+<p class="hero-description">
+
+                    Discover talented nail artists in your area.
+                    Book appointments effortlessly and get the
+                    nails you've always dreamed of.
+
+                </p>
+<!-- =========================
+                     SEARCH FORM
+                ========================= -->
+<form class="search-area" id="citySearchForm">
+<div class="search-box">
+<span class="location-icon">
+                            ⌖
+                        </span>
+<input autocomplete="off" id="locationSearch" placeholder="Enter your city or area..." type="text"/>
+</div>
+<button class="search-button" type="submit">
+<span>
+                            ⌕
+                        </span>
+
+                        Search
+
+                    </button>
+</form>
+<!-- STATS -->
+<div class="stats">
+<div class="stat">
+<span class="dot green"></span>
+<span>
+                            500+ Artists
+                        </span>
+</div>
+<div class="stat">
+<span class="dot pink"></span>
+<span>
+                            10,000+ Bookings
+                        </span>
+</div>
+<div class="stat">
+<span class="dot purple"></span>
+<span>
+                            4.9 Average Rating
+                        </span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- =========================
+         SEARCH JAVASCRIPT
+    ========================= -->
+<script>
+
+        const searchForm =
+            document.getElementById("citySearchForm");
+
+        const searchInput =
+            document.getElementById("locationSearch");
+
+
+        searchForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const city =
+                    searchInput.value.trim();
+
+
+                /* EMPTY SEARCH */
+
+                if (city === "") {
+
+                    alert(
+                        "Please enter a city or area."
+                    );
+
+                    searchInput.focus();
+
+                    return;
+                }
+
+
+                /*
+                    Send the search to
+                    Find artist.html
+                */
+
+                const destination =
+                    "Find%20artist.html?city=" +
+                    encodeURIComponent(city);
+
+
+                window.location.href =
+                    destination;
+
+            }
+        );
+
+
+        /*
+            Allow ENTER key to search.
+
+        */
+
+        searchInput.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Enter") {
+
+                    event.preventDefault();
+
+                    searchForm.requestSubmit();
+                }
+
+            }
+        );
+
+    </script>
+<!-- Copyright -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<div id="siteFooter"></div><script src="app.js"></script>
+<script src="footer.js"></script>
+<script>
+// Home page mobile menu. The drawer closes when the X button or dark shade is clicked.
+const homeMenu = document.getElementById('homeMobileMenu');
+const homeMenuBtn = document.getElementById('homeMenuBtn');
+const homeMenuClose = document.getElementById('homeMenuClose');
+const homeMenuShade = document.getElementById('homeMenuShade');
+
+function openHomeMenu() {
+    if (!homeMenu) return;
+    homeMenu.classList.add('open');
+    homeMenu.setAttribute('aria-hidden', 'false');
+    if (homeMenuBtn) homeMenuBtn.setAttribute('aria-expanded', 'true');
+}
+
+function closeHomeMenu() {
+    if (!homeMenu) return;
+    homeMenu.classList.remove('open');
+    homeMenu.setAttribute('aria-hidden', 'true');
+    if (homeMenuBtn) homeMenuBtn.setAttribute('aria-expanded', 'false');
+}
+
+if (homeMenuBtn) homeMenuBtn.addEventListener('click', openHomeMenu);
+if (homeMenuClose) homeMenuClose.addEventListener('click', closeHomeMenu);
+if (homeMenuShade) homeMenuShade.addEventListener('click', closeHomeMenu);
+
+// Escape also closes the drawer.
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeHomeMenu();
+});
+</script>
+</body>
+</html>

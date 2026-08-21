@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>NailBook | Client Login</title>
+
+    <style>
+        /* =========================
+           GLOBAL STYLES
+        ========================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, Arial, sans-serif;
+            background: linear-gradient(
+                135deg,
+                #fff5f8,
+                #fbf0ff
+            );
+            min-height: 100vh;
+            color: #171b2d;
+        }
+
+        /* =========================
+           LOGIN PAGE
+        ========================== */
+
+        .page {
+            min-height: 100vh;
+
+            display: grid;
+            place-items: center;
+
+            padding: 25px;
+        }
+
+        /* =========================
+           LOGIN CARD
+        ========================== */
+
+        .card {
+            width: min(430px, 92%);
+
+            background: #ffffff;
+
+            border: 1px solid #eee6eb;
+            border-radius: 24px;
+
+            padding: 34px;
+
+            box-shadow: 0 18px 50px #23142818;
+        }
+
+        /* =========================
+           NAILBOOK LOGO
+        ========================== */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            text-decoration: none;
+
+            font-size: 22px;
+            font-weight: 700;
+
+            margin-bottom: 28px;
+        }
+
+        .icon {
+            width: 42px;
+            height: 42px;
+
+            border-radius: 12px;
+
+            background: linear-gradient(
+                135deg,
+                #ed3d82,
+                #bd3fd4
+            );
+
+            color: #ffffff;
+
+            display: grid;
+            place-items: center;
+        }
+
+        /* =========================
+           HEADINGS
+        ========================== */
+
+        h1 {
+            text-align: center;
+
+            font-size: 28px;
+
+            margin: 0 0 8px;
+        }
+
+        .sub {
+            text-align: center;
+
+            color: #707586;
+
+            font-size: 14px;
+
+            margin: 0 0 26px;
+        }
+
+        /* =========================
+           FORM LABELS
+        ========================== */
+
+        label {
+            display: block;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            margin: 16px 0 8px;
+        }
+
+        /* =========================
+           FORM INPUTS
+        ========================== */
+
+        input {
+            width: 100%;
+            height: 50px;
+
+            border: 1px solid #dfe3eb;
+            border-radius: 12px;
+
+            padding: 0 14px;
+
+            outline: none;
+
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #e63891;
+
+            box-shadow:
+                0 0 0 3px #e6389118;
+        }
+
+        /* =========================
+           LOGIN BUTTON
+        ========================== */
+
+        button {
+            width: 100%;
+            height: 52px;
+
+            border: 0;
+            border-radius: 13px;
+
+            background: #111827;
+            color: #ffffff;
+
+            font-weight: 700;
+            font-size: 15px;
+
+            cursor: pointer;
+
+            margin-top: 22px;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+
+            cursor: not-allowed;
+        }
+
+        /* =========================
+           MESSAGE
+        ========================== */
+
+        .message {
+            min-height: 20px;
+
+            text-align: center;
+
+            font-size: 13px;
+
+            margin-top: 12px;
+        }
+
+        /* =========================
+           BOTTOM SIGN-UP LINK
+        ========================== */
+
+        .bottom {
+            text-align: center;
+
+            font-size: 13px;
+
+            color: #707586;
+
+            margin-top: 22px;
+        }
+
+        .bottom a {
+            color: #e63891;
+
+            font-weight: 600;
+
+            text-decoration: none;
+        }
+
+        .bottom a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <!-- Shared NailBook CSS -->
+    <link
+        href="nailbook-shared.css"
+        rel="stylesheet"
+    >
+</head>
+
+
+<body>
+
+    <!-- =========================
+         LOGIN PAGE
+    ========================== -->
+
+    <div class="page">
+
+        <!-- Login Card -->
+        <div class="card">
+
+            <!-- NailBook Logo -->
+            <a
+                class="logo"
+                href="Home%20page.html"
+            >
+                <span class="icon">✧</span>
+                NailBook
+            </a>
+
+
+            <!-- Page Heading -->
+            <h1>
+                Client login
+            </h1>
+
+            <p class="sub">
+                Log in to find artists and manage your appointments.
+            </p>
+
+
+            <!-- =========================
+                 LOGIN FORM
+            ========================== -->
+
+            <form id="loginForm">
+
+                <!-- Email -->
+                <label for="email">
+                    Email address
+                </label>
+
+                <input
+                    id="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <!-- Password -->
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    id="password"
+                    type="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+
+                <!-- Login Button -->
+                <button
+                    id="submitBtn"
+                    type="submit"
+                >
+                    Log in
+                </button>
+
+
+                <!-- Login Message -->
+                <div
+                    class="message"
+                    id="message"
+                ></div>
+
+            </form>
+
+
+            <!-- =========================
+                 SIGN-UP LINK
+            ========================== -->
+
+            <div class="bottom">
+
+                Don't have a client account?
+
+                <a href="signupclient.html">
+                    Create one
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         SUPABASE
+    ========================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <!-- NailBook Application Files -->
+    <script src="app.js"></script>
+    <script src="auth.js"></script>
+
+
+    <!-- Footer Container -->
+    <div id="siteFooter"></div>
+
+
+    <!-- =========================
+         CLIENT LOGIN JAVASCRIPT
+    ========================== -->
+
+    <script>
+        document
+            .getElementById("loginForm")
+            .addEventListener("submit", async function (e) {
+
+                e.preventDefault();
+
+                const button =
+                    document.getElementById("submitBtn");
+
+                const message =
+                    document.getElementById("message");
+
+
+                /* Disable button while logging in */
+                button.disabled = true;
+                button.textContent = "Logging in...";
+
+                message.textContent = "";
+
+
+                try {
+
+                    /*
+                     * Sign in the user through NailBook authentication.
+                     * expectedRole ensures that only a client account
+                     * can use this login page.
+                     */
+
+                    await signInNailBookUser({
+
+                        email:
+                            document
+                                .getElementById("email")
+                                .value,
+
+                        password:
+                            document
+                                .getElementById("password")
+                                .value,
+
+                        expectedRole: "client"
+                    });
+
+
+                    /* Successful login */
+
+                    showAuthMessage(
+                        message,
+                        "Login successful. Opening your dashboard...",
+                        "success"
+                    );
+
+
+                    /*
+                     * Send the client to the client dashboard
+                     * after successful authentication.
+                     */
+
+                    setTimeout(function () {
+
+                        location.href =
+                            "dashboardclient.html";
+
+                    }, 500);
+
+
+                } catch (err) {
+
+                    console.error(err);
+
+
+                    /* Display login error */
+
+                    showAuthMessage(
+                        message,
+                        err.message || "Login failed."
+                    );
+
+
+                    /* Enable button again */
+
+                    button.disabled = false;
+                    button.textContent = "Log in";
+                }
+
+            });
+    </script>
+
+
+    <!-- Footer JavaScript -->
+    <script src="footer.js"></script>
+
+</body>
+
+</html>

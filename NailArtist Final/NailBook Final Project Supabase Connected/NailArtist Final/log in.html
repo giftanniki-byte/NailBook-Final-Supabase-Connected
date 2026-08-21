@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NailBook | Log In</title>
+
+
+    <!-- =========================
+         STYLES
+    ========================== -->
+
+    <style>
+
+        /* =========================
+           GLOBAL
+        ========================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Inter, Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #fff3f7,
+                #fbf0ff
+            );
+
+            min-height: 100vh;
+
+            display: grid;
+            place-items: center;
+
+            color: #171b2d;
+        }
+
+
+        /* =========================
+           LOGIN CARD
+        ========================== */
+
+        .card {
+            width: min(560px, 92%);
+
+            background: #ffffff;
+
+            border: 1px solid #eee6eb;
+            border-radius: 24px;
+
+            padding: 34px;
+
+            box-shadow:
+                0 20px 55px rgba(53, 21, 42, 0.10);
+        }
+
+
+        /* =========================
+           NAILBOOK LOGO
+        ========================== */
+
+        .logo {
+            text-align: center;
+
+            font-size: 23px;
+            font-weight: 700;
+
+            margin-bottom: 25px;
+        }
+
+        .logo b {
+            display: inline-grid;
+
+            place-items: center;
+
+            width: 44px;
+            height: 44px;
+
+            border-radius: 12px;
+
+            background: linear-gradient(
+                135deg,
+                #ed3d82,
+                #bd3fd4
+            );
+
+            color: #ffffff;
+
+            margin-right: 8px;
+        }
+
+
+        /* =========================
+           HEADINGS
+        ========================== */
+
+        h1 {
+            text-align: center;
+
+            font-size: 29px;
+
+            margin-bottom: 8px;
+        }
+
+        .sub {
+            text-align: center;
+
+            color: #73798a;
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           ACCOUNT ROLES
+        ========================== */
+
+        .roles {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+        }
+
+
+        /* Individual role card */
+
+        .role {
+            border: 1px solid #e4e6ed;
+
+            border-radius: 17px;
+
+            padding: 22px;
+
+            text-decoration: none;
+
+            color: #171b2d;
+
+            transition: 0.2s;
+
+            background: #ffffff;
+        }
+
+
+        /* Hover effect */
+
+        .role:hover {
+            border-color: #e63891;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 25px rgba(230, 56, 145, 0.10);
+        }
+
+
+        /* Role icon */
+
+        .role-icon {
+            width: 46px;
+            height: 46px;
+
+            border-radius: 13px;
+
+            background: #fff0f5;
+
+            color: #e63891;
+
+            display: grid;
+            place-items: center;
+
+            font-size: 22px;
+
+            margin-bottom: 14px;
+        }
+
+
+        /* Role heading */
+
+        .role h2 {
+            font-size: 17px;
+
+            margin-bottom: 7px;
+        }
+
+
+        /* Role description */
+
+        .role p {
+            font-size: 13px;
+
+            color: #73798a;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           BOTTOM SIGN-UP SECTION
+        ========================== */
+
+        .bottom {
+            text-align: center;
+
+            margin-top: 23px;
+
+            font-size: 13px;
+
+            color: #73798a;
+        }
+
+        .bottom a {
+            color: #e63891;
+
+            font-weight: 600;
+
+            text-decoration: none;
+        }
+
+        .bottom a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           MOBILE RESPONSIVE
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            .roles {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+
+    <!-- Shared NailBook CSS -->
+    <link
+        href="nailbook-shared.css"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         LOGIN ROLE SELECTION
+    ========================== -->
+
+    <div class="card">
+
+
+        <!-- NailBook Logo -->
+
+        <div class="logo">
+
+            <b>✧</b>
+
+            NailBook
+
+        </div>
+
+
+        <!-- Page Heading -->
+
+        <h1>
+            Welcome back
+        </h1>
+
+        <p class="sub">
+            Choose the account you want to access.
+        </p>
+
+
+        <!-- =========================
+             ACCOUNT OPTIONS
+        ========================== -->
+
+        <div class="roles">
+
+
+            <!-- =====================
+                 CLIENT LOGIN
+            ====================== -->
+
+            <a
+                class="role"
+                href="loginclient.html"
+            >
+
+                <div class="role-icon">
+                    ♡
+                </div>
+
+                <h2>
+                    Sign in as a Client
+                </h2>
+
+                <p>
+                    Access your bookings,
+                    favorites and client dashboard.
+                </p>
+
+            </a>
+
+
+            <!-- =====================
+                 ARTIST LOGIN
+            ====================== -->
+
+            <a
+                class="role"
+                href="loginArtist.html"
+            >
+
+                <div class="role-icon">
+                    ✦
+                </div>
+
+                <h2>
+                    Sign in as an Artist
+                </h2>
+
+                <p>
+                    Access your artist dashboard,
+                    services and appointments.
+                </p>
+
+            </a>
+
+        </div>
+
+
+        <!-- =========================
+             SIGN-UP LINK
+        ========================== -->
+
+        <div class="bottom">
+
+            New to NailBook?
+
+            <a href="sign up.html">
+                Create an account
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <div id="siteFooter"></div>
+
+
+    <!-- Footer JavaScript -->
+    <script src="footer.js"></script>
+
+</body>
+
+</html>

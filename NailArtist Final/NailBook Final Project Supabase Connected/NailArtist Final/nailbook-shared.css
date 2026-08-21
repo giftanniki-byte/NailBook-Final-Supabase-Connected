@@ -1,0 +1,206 @@
+/* ==========================================================
+   NailBook shared site styles
+   Edit this file once to change the common footer/menu style
+   across the whole website.
+   ========================================================== */
+
+/* ==========================================================
+   EXTENDED FOOTER
+   Used only on Find artist.html and helpandsupport.html.
+   ========================================================== */
+.nb-footer-extended {
+  margin-top: 50px;
+  background: #fff;
+  border-top: 1px solid #e7e8ed;
+  color: #171b2d;
+}
+
+.nb-footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 42px 24px 38px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.nb-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nb-footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  width: fit-content;
+  color: #171b2d;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.nb-footer-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(135deg, #ed3d82, #bd3fd4);
+}
+
+.nb-footer p {
+  margin: 0;
+  max-width: 280px;
+  color: #697083;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.nb-footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nb-footer-col h3 {
+  margin: 2px 0 5px;
+  font-size: 14px;
+}
+
+.nb-footer-col a {
+  color: #697083;
+  font-size: 13px;
+}
+
+.nb-footer-col a:hover {
+  color: #e63891;
+}
+
+/* ==========================================================
+   COPYRIGHT FOOTER
+   This footer appears on every NailBook page.
+   ========================================================== */
+.nb-copyright-footer {
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 0;
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.nb-copyright-text {
+  color: #8090a8;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ==========================================================
+   HOME PAGE HAMBURGER MENU
+   The home page keeps the hamburger visible so it is easy to
+   find. It works on desktop and mobile.
+   ========================================================== */
+.nb-hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  color: #171b2d;
+  font-size: 21px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.nb-hamburger:hover {
+  border-color: #e63891;
+  color: #e63891;
+}
+
+.nb-mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.nb-mobile-menu.open {
+  display: block;
+}
+
+.nb-mobile-shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .50);
+}
+
+.nb-mobile-drawer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: min(360px, 88%);
+  background: #fff;
+  padding: 24px;
+  box-shadow: -10px 0 35px rgba(0, 0, 0, .12);
+}
+
+.nb-mobile-close {
+  float: right;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 9px;
+  background: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.nb-mobile-nav {
+  clear: both;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nb-mobile-nav a {
+  padding: 14px 0;
+  font-weight: 600;
+}
+
+.nb-mobile-nav a:hover {
+  color: #e63891;
+}
+
+.nb-mobile-cta {
+  display: block;
+  margin-top: 18px;
+  padding: 13px;
+  border-radius: 11px;
+  text-align: center;
+  background: #f63d67;
+  color: #fff !important;
+}
+
+@media (max-width: 800px) {
+  .nb-footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .nb-footer-inner {
+    grid-template-columns: 1fr;
+    padding-top: 32px;
+  }
+
+  .nb-copyright-footer {
+    padding: 28px 16px;
+  }
+}

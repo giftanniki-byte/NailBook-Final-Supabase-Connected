@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>NailBook | Client Dashboard</title>
+
+    <link href="nailbook-shared.css" rel="stylesheet">
+
+    <style>
+        /* =========================
+           GLOBAL STYLES
+        ========================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, Arial, sans-serif;
+            background: #fafbfc;
+            color: #171b2d;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================== */
+
+        .nav {
+            height: 68px;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 30px;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 700;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            width: 38px;
+            height: 38px;
+
+            border-radius: 11px;
+
+            background: linear-gradient(
+                135deg,
+                #ed3d82,
+                #bd3fd4
+            );
+
+            display: grid;
+            place-items: center;
+
+            color: #fff;
+        }
+
+        .links {
+            display: flex;
+            gap: 25px;
+            font-size: 14px;
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar {
+            width: 38px;
+            height: 38px;
+
+            border-radius: 50%;
+
+            background: #fff0f4;
+            color: #e63891;
+
+            display: grid;
+            place-items: center;
+
+            font-weight: 700;
+        }
+
+        .logout {
+            border: 0;
+            background: #111827;
+            color: #fff;
+
+            padding: 10px 14px;
+
+            border-radius: 10px;
+
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+        ========================== */
+
+        .main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px;
+        }
+
+
+        /* =========================
+           WELCOME SECTION
+        ========================== */
+
+        .welcome {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 22px;
+        }
+
+        .welcome h1 {
+            margin: 0 0 6px;
+            font-size: 28px;
+        }
+
+        .muted {
+            color: #697083;
+            font-size: 13px;
+        }
+
+        .book {
+            background: #f63d67;
+            color: #fff;
+
+            border-radius: 11px;
+
+            padding: 12px 16px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           STATISTICS
+        ========================== */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .panel {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 18px;
+
+            padding: 20px;
+        }
+
+        .label {
+            color: #697083;
+            font-size: 13px;
+        }
+
+        .value {
+            font-size: 29px;
+            font-weight: 700;
+
+            margin-top: 7px;
+        }
+
+
+        /* =========================
+           DASHBOARD GRID
+        ========================== */
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1.35fr 0.9fr;
+
+            gap: 20px;
+
+            margin-top: 20px;
+        }
+
+
+        /* =========================
+           PANEL HEADERS
+        ========================== */
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 15px;
+        }
+
+        .head h2 {
+            font-size: 18px;
+            margin: 0;
+        }
+
+
+        /* =========================
+           BOOKINGS
+        ========================== */
+
+        .appt,
+        .fav {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            border-top: 1px solid #eee;
+
+            padding: 14px 0;
+        }
+
+        .date {
+            width: 48px;
+            height: 48px;
+
+            border-radius: 12px;
+
+            background: #fff0f4;
+
+            display: grid;
+            place-items: center;
+
+            line-height: 1;
+        }
+
+        .date b {
+            font-size: 17px;
+        }
+
+        .date small {
+            font-size: 10px;
+            color: #e63891;
+        }
+
+        .appt-info {
+            flex: 1;
+        }
+
+        .name {
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           BOOKING STATUS
+        ========================== */
+
+        .status {
+            font-size: 11px;
+
+            padding: 6px 8px;
+
+            border-radius: 20px;
+
+            background: #f1f5f9;
+        }
+
+        .status.pending {
+            background: #fff5d6;
+            color: #9b6b00;
+        }
+
+        .status.confirmed {
+            background: #eafbf1;
+            color: #138a46;
+        }
+
+        .status.declined,
+        .status.cancelled {
+            background: #fff0f0;
+            color: #d33;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .danger {
+            border: 0;
+
+            background: #fff0f0;
+            color: #d33;
+
+            border-radius: 8px;
+
+            padding: 7px 9px;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           EMPTY STATES
+        ========================== */
+
+        .empty {
+            padding: 30px 10px;
+
+            text-align: center;
+
+            color: #697083;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        .footer {
+            text-align: center;
+
+            color: #8a91a2;
+
+            font-size: 12px;
+
+            padding: 30px;
+        }
+
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+
+        @media (max-width: 850px) {
+
+            .links {
+                display: none;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .main {
+                padding: 20px 14px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome {
+                align-items: flex-start;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
+
+    <header class="nav">
+
+        <a class="logo" href="Home%20page.html">
+            <span class="icon">✧</span>
+            NailBook
+        </a>
+
+        <nav class="links">
+            <a href="Home%20page.html">Home</a>
+            <a href="Find%20artist.html">Find Artists</a>
+        </nav>
+
+        <div class="right">
+
+            <span class="avatar" id="avatar">
+                N
+            </span>
+
+            <button class="logout" id="logout">
+                Log out
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN DASHBOARD
+    ========================== -->
+
+    <main class="main">
+
+        <!-- Welcome section -->
+
+        <section class="welcome">
+
+            <div>
+
+                <h1 id="welcome">
+                    Welcome
+                </h1>
+
+                <p class="muted">
+                    Manage your NailBook appointments and saved artists.
+                </p>
+
+            </div>
+
+            <a class="book" href="Find%20artist.html">
+                Find an Artist
+            </a>
+
+        </section>
+
+
+        <!-- =========================
+             DASHBOARD STATISTICS
+        ========================== -->
+
+        <section class="stats">
+
+            <div class="panel">
+
+                <div class="label">
+                    Upcoming bookings
+                </div>
+
+                <div class="value" id="upCount">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="label">
+                    Completed bookings
+                </div>
+
+                <div class="value" id="doneCount">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="label">
+                    Favorite artists
+                </div>
+
+                <div class="value" id="favCount">
+                    0
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             BOOKINGS & FAVORITES
+        ========================== -->
+
+        <section class="grid">
+
+            <!-- My Bookings -->
+
+            <div class="panel">
+
+                <div class="head">
+
+                    <h2>
+                        My Bookings
+                    </h2>
+
+                    <span class="muted">
+                        Latest first
+                    </span>
+
+                </div>
+
+                <div id="bookings">
+                    <!-- Bookings are loaded from Supabase -->
+                </div>
+
+            </div>
+
+
+            <!-- Favorite Artists -->
+
+            <div class="panel">
+
+                <div class="head">
+
+                    <h2>
+                        Favorite Artists
+                    </h2>
+
+                    <span class="muted">
+                        Saved
+                    </span>
+
+                </div>
+
+                <div id="favorites">
+                    <!-- Favorite artists are loaded from Supabase -->
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         SUPABASE
+    ========================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="app.js"></script>
+
+    <script src="auth.js"></script>
+
+
+    <!-- Footer is inserted here -->
+
+    <div id="siteFooter"></div>
+
+
+    <!-- =========================
+         CLIENT DASHBOARD SCRIPT
+    ========================== -->
+
+    <script>
+
+        (async () => {
+
+            /*
+             * Require the user to be logged in
+             * as a client before showing the dashboard.
+             */
+
+            const account = await requireLogin('client');
+
+            if (!account) {
+                return;
+            }
+
+
+            /* Get the logged-in user's ID */
+
+            const uid = account.authUser.id;
+
+
+            /* Update welcome message */
+
+            document.getElementById('welcome').textContent =
+                `Welcome, ${account.profile.full_name || 'Client'}`;
+
+
+            /* Update avatar initials */
+
+            document.getElementById('avatar').textContent =
+                initials(account.profile.full_name);
+
+
+            /* Logout button */
+
+            document.getElementById('logout').onclick =
+                logoutClient;
+
+
+            /*
+             * Load bookings and favorite artists
+             * from Supabase at the same time.
+             */
+
+            const [
+                {
+                    data: rows,
+                    error: bookingError
+                },
+
+                {
+                    data: favorites,
+                    error: favoriteError
+                }
+
+            ] = await Promise.all([
+
+                supabaseClient
+                    .from('v_my_bookings')
+                    .select('*')
+                    .eq('client_id', uid)
+                    .order('booking_date', {
+                        ascending: false
+                    })
+                    .order('start_time', {
+                        ascending: false
+                    }),
+
+                supabaseClient
+                    .from('favorites')
+                    .select(
+                        'artist_id,artist_profiles:artist_id(business_name,location,average_rating)'
+                    )
+                    .eq('client_id', uid)
+
+            ]);
+
+
+            /* Display Supabase errors in console */
+
+            if (bookingError || favoriteError) {
+                console.error(
+                    bookingError || favoriteError
+                );
+            }
+
+
+            const bookings = rows || [];
+
+
+            /* =========================
+               UPDATE STATISTICS
+            ========================== */
+
+            document.getElementById('upCount').textContent =
+                bookings.filter(
+                    booking =>
+                        ![
+                            'completed',
+                            'cancelled',
+                            'declined',
+                            'no_show'
+                        ].includes(booking.status)
+                ).length;
+
+
+            document.getElementById('doneCount').textContent =
+                bookings.filter(
+                    booking =>
+                        booking.status === 'completed'
+                ).length;
+
+
+            document.getElementById('favCount').textContent =
+                (favorites || []).length;
+
+
+            /* =========================
+               DISPLAY BOOKINGS
+            ========================== */
+
+            document.getElementById('bookings').innerHTML =
+                bookings.length
+
+                    ? bookings.map(booking => {
+
+                        const date =
+                            new Date(
+                                booking.booking_date + 'T00:00:00'
+                            );
+
+                        const canCancel =
+                            [
+                                'pending',
+                                'confirmed'
+                            ].includes(booking.status);
+
+
+                        return `
+                            <div class="appt">
+
+                                <div class="date">
+
+                                    <b>
+                                        ${date.getDate()}
+                                    </b>
+
+                                    <small>
+                                        ${date.toLocaleDateString(
+                                            'en-US',
+                                            {
+                                                month: 'short'
+                                            }
+                                        )}
+                                    </small>
+
+                                </div>
+
+
+                                <div class="appt-info">
+
+                                    <div class="name">
+                                        ${safeText(
+                                            booking.artist_name ||
+                                            'Artist'
+                                        )}
+                                    </div>
+
+                                    <div class="muted">
+                                        ${safeText(
+                                            booking.service_name ||
+                                            'Service'
+                                        )}
+                                        ·
+                                        ${safeText(
+                                            (
+                                                booking.start_time ||
+                                                ''
+                                            ).slice(0, 5)
+                                        )}
+                                    </div>
+
+                                </div>
+
+
+                                <span class="status ${booking.status}">
+                                    ${safeText(booking.status)}
+                                </span>
+
+
+                                ${
+                                    canCancel
+
+                                        ? `
+                                            <button
+                                                class="danger"
+                                                data-cancel="${booking.booking_id}"
+                                            >
+                                                Cancel
+                                            </button>
+                                        `
+
+                                        : ''
+                                }
+
+                            </div>
+                        `;
+
+                    }).join('')
+
+                    : `
+                        <div class="empty">
+                            No bookings yet.
+                            Find an artist to get started.
+                        </div>
+                    `;
+
+
+            /* =========================
+               CANCEL BOOKING
+            ========================== */
+
+            document
+                .querySelectorAll('[data-cancel]')
+                .forEach(button => {
+
+                    button.onclick = async () => {
+
+                        if (
+                            !confirm(
+                                'Cancel this booking?'
+                            )
+                        ) {
+                            return;
+                        }
+
+
+                        const {
+                            error
+                        } = await supabaseClient
+                            .from('bookings')
+                            .update({
+                                status: 'cancelled'
+                            })
+                            .eq(
+                                'booking_id',
+                                button.dataset.cancel
+                            )
+                            .eq(
+                                'client_id',
+                                uid
+                            );
+
+
+                        if (error) {
+
+                            alert(error.message);
+
+                        } else {
+
+                            location.reload();
+
+                        }
+
+                    };
+
+                });
+
+
+            /* =========================
+               DISPLAY FAVORITE ARTISTS
+            ========================== */
+
+            document.getElementById('favorites').innerHTML =
+
+                (favorites || []).length
+
+                    ? (favorites || []).map(favorite => `
+
+                        <div class="fav">
+
+                            <div style="flex: 1">
+
+                                <div class="name">
+                                    ${safeText(
+                                        favorite.artist_profiles
+                                            ?.business_name ||
+                                        'Artist'
+                                    )}
+                                </div>
+
+                                <div class="muted">
+
+                                    ${safeText(
+                                        favorite.artist_profiles
+                                            ?.location ||
+                                        ''
+                                    )}
+
+                                    · ⭐
+
+                                    ${Number(
+                                        favorite.artist_profiles
+                                            ?.average_rating ||
+                                        0
+                                    ).toFixed(1)}
+
+                                </div>
+
+                            </div>
+
+
+                            <button
+                                class="danger"
+                                data-fav="${favorite.artist_id}"
+                            >
+                                Remove
+                            </button>
+
+                        </div>
+
+                    `).join('')
+
+                    : `
+                        <div class="empty">
+                            No favorite artists yet.
+                        </div>
+                    `;
+
+
+            /* =========================
+               REMOVE FAVORITE ARTIST
+            ========================== */
+
+            document
+                .querySelectorAll('[data-fav]')
+                .forEach(button => {
+
+                    button.onclick = async () => {
+
+                        const {
+                            error
+                        } = await supabaseClient
+                            .from('favorites')
+                            .delete()
+                            .eq(
+                                'client_id',
+                                uid
+                            )
+                            .eq(
+                                'artist_id',
+                                button.dataset.fav
+                            );
+
+
+                        if (error) {
+
+                            alert(error.message);
+
+                        } else {
+
+                            location.reload();
+
+                        }
+
+                    };
+
+                });
+
+        })();
+
+    </script>
+
+
+    <!-- Shared NailBook footer -->
+
+    <script src="footer.js"></script>
+
+</body>
+
+</html>
