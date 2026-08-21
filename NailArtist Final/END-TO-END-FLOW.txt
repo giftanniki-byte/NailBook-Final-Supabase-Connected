@@ -1,0 +1,23 @@
+NailBook corrected authentication flow
+
+SIGNUP
+Supabase Auth -> auth.users
+
+EMAIL CONFIRMATION ON
+User confirms email -> login -> ensure_nailbook_profile()
+
+EMAIL CONFIRMATION OFF
+signUp returns session -> ensure_nailbook_profile()
+
+PROVISIONING
+ensure_nailbook_profile()
+  -> profiles
+  -> artist_profiles + artist_services (artist)
+  -> client_profiles (client)
+
+FIND ARTISTS
+v_artist_directory -> artist_profiles + artist_services + services
+
+IMPORTANT
+There is NO auth.users trigger in the corrected version.
+This prevents the generic "Database error saving new user" from a failing trigger.

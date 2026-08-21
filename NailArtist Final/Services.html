@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Popular Nail Services</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #fff8fb;
+            color: #333;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: white;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #d9468c;
+        }
+
+        .logo span {
+            color: #333;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #d9468c;
+        }
+
+        .nav-button {
+            background: #d9468c;
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 25px;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 70px 8%;
+            background: linear-gradient(135deg, #fff1f7, #ffe0ed);
+        }
+
+        .hero-text {
+            width: 50%;
+        }
+
+        .hero-text h1 {
+            font-size: 55px;
+            line-height: 1.1;
+            color: #292929;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: #d9468c;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            padding: 14px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .primary-btn {
+            background: #d9468c;
+            color: white;
+        }
+
+        .secondary-btn {
+            background: white;
+            color: #d9468c;
+            border: 1px solid #d9468c;
+        }
+
+        .hero-image {
+            width: 42%;
+            height: 350px;
+            border-radius: 30px;
+            background: linear-gradient(
+                rgba(0,0,0,0.1),
+                rgba(0,0,0,0.1)
+            ),
+            url("https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* SEARCH */
+        .search-section {
+            padding: 45px 8%;
+            background: white;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .search-box input,
+        .search-box select {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+            flex: 1;
+        }
+
+        .search-box button {
+            background: #d9468c;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #777;
+        }
+
+        /* ARTISTS */
+        .artists {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .artist-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .artist-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .artist-image {
+            height: 230px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .artist-info {
+            padding: 20px;
+        }
+
+        .artist-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .location {
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .rating {
+            color: #e5a100;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: #d9468c;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .book-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #d9468c;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        /* SERVICES */
+        .services {
+            background: white;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            padding: 30px;
+            background: #fff5f9;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .service-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* HOW IT WORKS */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #d9468c;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto auto 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .step p {
+            color: #777;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        /* BOOKING MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            width: 90%;
+            max-width: 500px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 20px;
+            color: #d9468c;
+        }
+
+        .modal-content input,
+        .modal-content select {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .submit-booking {
+            width: 100%;
+            padding: 14px;
+            background: #d9468c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #292929;
+            color: white;
+            padding: 50px 8% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        footer h3 {
+            color: #ff75b3;
+            margin-bottom: 15px;
+        }
+
+        footer p,
+        footer a {
+            color: #ccc;
+            line-height: 1.8;
+            text-decoration: none;
+        }
+
+        .copyright {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            text-align: center;
+            color: #aaa;
+        }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+
+            .hero {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .hero-text,
+            .hero-image {
+                width: 100%;
+            }
+
+            .hero-text h1 {
+                font-size: 40px;
+            }
+
+            .artists,
+            .service-grid,
+            .steps,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-box button {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<!-- NAVIGATION -->
+<nav>
+
+    <div class="logo">
+        Nail<span>Artist</span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="Home%20page.html">Home</a></li>
+        <li><a href="Find%20artist.html">Find Artists</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="how%20it%20works.html">How It Works</a></li>
+        <li><a href="Contact%20us.html">Contact</a></li>
+        <li>
+            <a class="nav-button" href="#artists">
+                Book Now
+            </a>
+        </li>
+    </ul>
+
+</nav>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SERVICES -->
+<section class="services" id="services">
+
+    <div class="section-title">
+
+        <h2>Popular Nail Services</h2>
+
+        <p>
+            Choose from a variety of professional nail services.
+        </p>
+
+    </div>
+
+
+    <div class="service-grid">
+
+        <div class="service-card">
+
+            <div class="service-icon">💅</div>
+
+            <h3>Gel Nails</h3>
+
+            <p>
+                Beautiful and long-lasting gel nail designs
+                from professional nail artists.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">✨</div>
+
+            <h3>Acrylic Nails</h3>
+
+            <p>
+                Strong, stylish acrylic nails customized
+                to your preferred design.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">💖</div>
+
+            <h3>Nail Art</h3>
+
+            <p>
+                Unique nail art designs created especially
+                for your personality and style.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NailBook | Contact Us</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    color: #171b2d;
+    background: #fff9fb;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.navbar {
+    height: 66px;
+
+    background: rgba(255,255,255,0.98);
+
+    border-bottom: 1px solid #eeeaf0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 24px;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-weight: 700;
+}
+
+.logo-icon {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ed3d82,
+            #bd3fd4
+        );
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
+
+    box-shadow:
+        0 5px 15px rgba(220,55,140,0.20);
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+/* NAVIGATION LINKS */
+
+.nav-links {
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    gap: 34px;
+}
+
+.nav-links a {
+    font-size: 14px;
+
+    font-weight: 500;
+
+    color: #555a6d;
+
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #ed3d82;
+}
+
+.nav-links a.active {
+    color: #ed3d82;
+
+    font-weight: 600;
+}
+
+
+/* RIGHT NAVIGATION */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.login {
+    font-size: 14px;
+
+    font-weight: 500;
+
+    color: #171b2d;
+}
+
+.login:hover {
+    color: #ed3d82;
+}
+
+.signup {
+    border: none;
+
+    background: #111827;
+
+    color: white;
+
+    padding: 11px 20px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.signup:hover {
+    background: #ed3d82;
+}
+
+
+/* MOBILE MENU */
+
+.mobile-menu {
+    display: none;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    color: #171b2d;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.contact-hero {
+
+    background:
+
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(255,207,220,0.75),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 80% 60%,
+            rgba(244,205,255,0.75),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fff4f7,
+            #fff8fb 50%,
+            #fbf1ff
+        );
+
+    text-align: center;
+
+    padding: 85px 20px 75px;
+
+    border-bottom: 1px solid #f0e9ef;
+}
+
+
+/* BADGE */
+
+.contact-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 17px;
+
+    border: 1px solid #ffd3df;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.7);
+
+    color: #ed3d67;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-bottom: 24px;
+}
+
+
+/* HERO TITLE */
+
+.contact-hero h1 {
+
+    font-size: clamp(
+        42px,
+        6vw,
+        65px
+    );
+
+    line-height: 1.05;
+
+    letter-spacing: -2.5px;
+
+    margin-bottom: 20px;
+}
+
+.contact-hero h1 span {
+
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ef3b78,
+            #d538c7
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+.contact-hero p {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    color: #656a7a;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.container {
+
+    width: min(
+        1050px,
+        calc(100% - 40px)
+    );
+
+    margin: auto;
+}
+
+
+/* =====================================================
+   CONTACT AREA
+===================================================== */
+
+.contact-section {
+
+    padding: 70px 0;
+}
+
+.contact-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        0.85fr 1.35fr;
+
+    gap: 35px;
+
+    align-items: start;
+}
+
+
+/* =====================================================
+   CONTACT INFORMATION
+===================================================== */
+
+.contact-info {
+
+    background: white;
+
+    border: 1px solid #e6e1e6;
+
+    border-radius: 20px;
+
+    padding: 32px;
+
+    box-shadow:
+        0 8px 25px rgba(30,20,40,0.04);
+}
+
+.contact-info h2 {
+
+    font-size: 26px;
+
+    margin-bottom: 12px;
+
+    letter-spacing: -0.7px;
+}
+
+.contact-info > p {
+
+    color: #697083;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-bottom: 28px;
+}
+
+
+/* INFO ITEM */
+
+.contact-item {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    padding: 17px 0;
+
+    border-bottom: 1px solid #f0edf0;
+}
+
+.contact-item:last-child {
+    border-bottom: none;
+}
+
+.contact-item-icon {
+
+    width: 43px;
+    height: 43px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: #fff0f5;
+
+    color: #ed3d82;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 19px;
+}
+
+.contact-item h4 {
+
+    font-size: 14px;
+
+    margin-bottom: 5px;
+}
+
+.contact-item p,
+.contact-item a {
+
+    color: #697083;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+.contact-item a:hover {
+    color: #ed3d82;
+}
+
+
+/* =====================================================
+   CONTACT FORM
+===================================================== */
+
+.contact-form {
+
+    background: white;
+
+    border: 1px solid #e6e1e6;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 8px 25px rgba(30,20,40,0.04);
+}
+
+.contact-form h2 {
+
+    font-size: 26px;
+
+    margin-bottom: 8px;
+}
+
+.form-description {
+
+    color: #697083;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 28px;
+}
+
+
+/* FORM ROW */
+
+.form-row {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+
+/* FORM GROUP */
+
+.form-group {
+
+    margin-bottom: 20px;
+}
+
+.form-group label {
+
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #303548;
+
+    margin-bottom: 8px;
+}
+
+.required {
+    color: #ed3d82;
+}
+
+
+/* INPUT */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width: 100%;
+
+    border: 1px solid #dfe2e9;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    color: #171b2d;
+
+    outline: none;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+.form-group input,
+.form-group select {
+
+    height: 48px;
+
+    padding: 0 14px;
+}
+
+.form-group textarea {
+
+    min-height: 145px;
+
+    resize: vertical;
+
+    padding: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color: #e63891;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(230,56,145,0.10);
+}
+
+
+/* SUBMIT BUTTON */
+
+.submit-button {
+
+    width: 100%;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: #111827;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.submit-button:hover {
+
+    background: #ed3d82;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(230,56,145,0.22);
+}
+
+
+/* SUCCESS MESSAGE */
+
+.success-message {
+
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #edfff4;
+
+    border: 1px solid #bceccc;
+
+    color: #197344;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   QUICK HELP
+===================================================== */
+
+.quick-help {
+
+    padding-bottom: 75px;
+}
+
+.quick-help h2 {
+
+    text-align: center;
+
+    font-size: 29px;
+
+    margin-bottom: 30px;
+
+    letter-spacing: -0.7px;
+}
+
+.quick-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.quick-card {
+
+    background: white;
+
+    border: 1px solid #e6e1e6;
+
+    border-radius: 17px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    transition: 0.2s;
+}
+
+.quick-card:hover {
+
+    transform: translateY(-4px);
+
+    border-color: #f3b9d2;
+
+    box-shadow:
+        0 12px 30px
+        rgba(220,55,140,0.08);
+}
+
+.quick-icon {
+
+    width: 46px;
+
+    height: 46px;
+
+    border-radius: 13px;
+
+    margin: 0 auto 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ed3d82,
+            #bd3fd4
+        );
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 20px;
+}
+
+.quick-card h3 {
+
+    font-size: 16px;
+
+    margin-bottom: 8px;
+}
+
+.quick-card p {
+
+    color: #697083;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin-bottom: 15px;
+}
+
+.quick-card a {
+
+    color: #ed3d82;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.quick-card a:hover {
+    color: #bd3fd4;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+    background: white;
+
+    border-top: 1px solid #e7e3e8;
+
+    padding: 45px 0 25px;
+}
+
+.footer-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr 1fr;
+
+    gap: 35px;
+}
+
+
+/* FOOTER BRAND */
+
+.footer-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+.footer-brand .logo-icon {
+
+    width: 34px;
+    height: 34px;
+
+    font-size: 18px;
+}
+
+.footer-brand strong {
+    font-size: 16px;
+}
+
+.footer p {
+
+    color: #707586;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    max-width: 260px;
+}
+
+
+/* FOOTER COLUMNS */
+
+.footer-column h4 {
+
+    font-size: 14px;
+
+    margin-bottom: 16px;
+}
+
+.footer-column a {
+
+    display: block;
+
+    color: #697083;
+
+    font-size: 13px;
+
+    margin-bottom: 12px;
+
+    transition: 0.2s;
+}
+
+.footer-column a:hover {
+    color: #ed3d82;
+}
+
+
+/* FOOTER BOTTOM */
+
+.footer-bottom {
+
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #eeeaf0;
+
+    text-align: center;
+
+    color: #8990a0;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .nav-right .login {
+        display: none;
+    }
+
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .quick-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .footer-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .navbar {
+        padding: 0 16px;
+    }
+
+    .nav-right .signup {
+        display: none;
+    }
+
+    .contact-hero {
+
+        padding:
+            65px 18px;
+
+    }
+
+    .contact-hero h1 {
+
+        font-size: 43px;
+
+    }
+
+    .container {
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+    .contact-form,
+    .contact-info {
+
+        padding: 24px;
+
+    }
+
+    .form-row {
+
+        grid-template-columns: 1fr;
+
+        gap: 0;
+
+    }
+
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="navbar">
+
+
+    <!-- LOGO -->
+
+    <a href="Home%20page.html" class="logo">
+
+        <div class="logo-icon">
+            ✧
+        </div>
+
+        <span class="logo-text">
+            NailBook
+        </span>
+
+    </a>
+
+
+    <!-- NAV LINKS -->
+
+    <nav class="nav-links">
+
+        <a href="Home%20page.html">
+            Home
+        </a>
+
+
+    </nav>
+
+
+ 
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="contact-hero">
+
+    <div class="contact-badge">
+        ✧ NailBook Support
+    </div>
+
+
+    <h1>
+
+        We'd love to
+
+        <span>
+            hear from you
+        </span>
+
+    </h1>
+
+
+    <p>
+
+        Have a question, need help with a booking,
+        or want to tell us about your NailBook experience?
+        Send us a message and we'll be happy to help.
+
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT SECTION
+===================================================== -->
+
+<section class="contact-section">
+
+<div class="container">
+
+<div class="contact-grid">
+
+
+    <!-- =================================================
+         CONTACT INFORMATION
+    ================================================== -->
+
+    <div class="contact-info">
+
+        <h2>
+            Get in touch
+        </h2>
+
+        <p>
+
+            Our team is here to help with questions about
+            bookings, accounts, nail artists and anything
+            else related to NailBook.
+
+        </p>
+
+
+        <!-- EMAIL -->
+
+        <div class="contact-item">
+
+            <div class="contact-item-icon">
+                ✉
+            </div>
+
+            <div>
+
+                <h4>
+                    Email
+                </h4>
+
+                <a href="mailto:support@nailbook.com">
+                    support@nailbook.com
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PHONE -->
+
+        <div class="contact-item">
+
+            <div class="contact-item-icon">
+                ☎
+            </div>
+
+            <div>
+
+                <h4>
+                    Phone
+                </h4>
+
+                <a href="tel:+27000000000">
+                    +27 00 000 0000
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOCATION -->
+
+        <div class="contact-item">
+
+            <div class="contact-item-icon">
+                ⌖
+            </div>
+
+            <div>
+
+                <h4>
+                    Location
+                </h4>
+
+                <p>
+                    South Africa
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- HOURS -->
+
+        <div class="contact-item">
+
+            <div class="contact-item-icon">
+                ◷
+            </div>
+
+            <div>
+
+                <h4>
+                    Support Hours
+                </h4>
+
+                <p>
+                    Monday – Friday<br>
+                    08:00 – 17:00
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         CONTACT FORM
+    ================================================== -->
+
+    <div class="contact-form">
+
+        <h2>
+            Send us a message
+        </h2>
+
+        <p class="form-description">
+
+            Complete the form below and our support team
+            will get back to you.
+
+        </p>
+
+
+        <form id="contactForm">
+
+
+            <!-- NAME + EMAIL -->
+
+            <div class="form-row">
+
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="you@example.com"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SUBJECT -->
+
+            <div class="form-group">
+
+                <label for="subject">
+                    Subject
+                    <span class="required">*</span>
+                </label>
+
+                <select
+                    id="subject"
+                    required
+                >
+
+                    <option value="">
+                        Select a topic
+                    </option>
+
+                    <option value="booking">
+                        Booking Help
+                    </option>
+
+                    <option value="artist">
+                        Find an Artist
+                    </option>
+
+                    <option value="account">
+                        Account Help
+                    </option>
+
+                    <option value="payment">
+                        Payment Question
+                    </option>
+
+                    <option value="technical">
+                        Technical Problem
+                    </option>
+
+                    <option value="feedback">
+                        Feedback
+                    </option>
+
+                    <option value="other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- MESSAGE -->
+
+            <div class="form-group">
+
+                <label for="message">
+                    Message
+                    <span class="required">*</span>
+                </label>
+
+                <textarea
+                    id="message"
+                    placeholder="Tell us how we can help..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- BUTTON -->
+
+            <button
+                type="submit"
+                class="submit-button"
+            >
+
+                Send Message
+
+            </button>
+
+
+            <!-- SUCCESS -->
+
+            <div
+                id="successMessage"
+                class="success-message"
+            >
+
+                ✓ Your message has been submitted successfully.
+                Thank you for contacting NailBook. Our support
+                team will get back to you.
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     QUICK HELP
+===================================================== -->
+
+<section class="quick-help">
+
+<div class="container">
+
+    <h2>
+        Looking for quick answers?
+    </h2>
+
+
+    <div class="quick-grid">
+
+
+        <!-- FIND ARTIST -->
+
+        <div class="quick-card">
+
+            <div class="quick-icon">
+                ♡
+            </div>
+
+            <h3>
+                Find an Artist
+            </h3>
+
+            <p>
+                Browse nail artists and find the perfect
+                artist for your next appointment.
+            </p>
+
+            <a href="Find%20artist.html">
+                Find Artists →
+            </a>
+
+        </div>
+
+
+
+        <!-- HELP -->
+
+        <div class="quick-card">
+
+            <div class="quick-icon">
+                ?
+            </div>
+
+            <h3>
+                Help Center
+            </h3>
+
+            <p>
+                Browse frequently asked questions and
+                useful NailBook information.
+            </p>
+
+            <a href="helpandsupport.html">
+                Visit Help Center →
+            </a>
+
+        </div>
+
+
+
+        <!-- BOOKINGS -->
+
+        <div class="quick-card">
+
+            <div class="quick-icon">
+                ✓
+            </div>
+
+            <h3>
+                Booking Help
+            </h3>
+
+            <p>
+                Need help with an appointment or booking?
+                We're here to help.
+            </p>
+
+            <a href="#contactForm">
+                Contact Us →
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+    <div class="footer-bottom">
+
+        © 2026 NailBook. All rights reserved.
+
+    </div>
+
+</div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+// Contact form is connected to Supabase below.
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+<script src="auth.js"></script>
+<script>
+const contactForm=document.getElementById('contactForm');
+if(contactForm){
+  contactForm.addEventListener('submit',async event=>{
+    event.preventDefault();
+    const name=document.getElementById('name').value.trim();
+    const email=document.getElementById('email').value.trim().toLowerCase();
+    const subject=document.getElementById('subject').value.trim();
+    const message=document.getElementById('message').value.trim();
+    const button=contactForm.querySelector('button[type="submit"]');
+    const success=document.getElementById('successMessage');
+    if(!name||!email||!subject||!message){alert('Please complete all required fields.');return}
+    button.disabled=true;button.textContent='Sending...';
+    try{
+      const user=await getSignedInUser();
+      const {error}=await supabaseClient.rpc('submit_support_message',{p_name:name,p_email:email,p_subject:subject,p_message:message});
+      if(error)throw error;
+      if(success){success.textContent='✓ Your message has been submitted successfully. Thank you for contacting NailBook.';success.style.display='block';success.scrollIntoView({behavior:'smooth',block:'center'})}
+      contactForm.reset();
+    }catch(error){console.error(error);alert('Could not send your message: '+(error.message||'Unknown error'))}
+    finally{button.disabled=false;button.textContent='Send Message'}
+  });
+}
+</script>
+</body>
+</html>
